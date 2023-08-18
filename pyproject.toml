@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "batarang"
+authors = [
+    {name = "Dustin Whited", email = "dustin.whited@aquia.us"},
+    {name = "James Elliiot", email = "jelliott@clarityinnovates.com"},
+]
+description = "It goes out and gets stuff and comes back"
+requires-python = ">=3.7"
+version = "2.0.0"
