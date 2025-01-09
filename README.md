@@ -10,8 +10,7 @@ Clone and run locally --profile is optional, should also accept creds exported t
 ```
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
-python -m src.batarang (nodes | latest | sechub) --profile yourawsprofile 
+pip install .
 ```
 
 Install from src
