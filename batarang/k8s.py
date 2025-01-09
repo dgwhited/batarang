@@ -1,5 +1,5 @@
 from kubernetes import client, config
-from artifactory import ArtifactoryPath
+# from artifactory import ArtifactoryPath
 from .utils import make_dataframe
 
 
@@ -26,20 +26,20 @@ class KUBERNETES_CLUSTER:
         return df
 
 
-class ARTIFACTORY_REPO:
-    def __init__(self, auth=None):
-        self.auth = auth
+# class ARTIFACTORY_REPO:
+#     def __init__(self, auth=None):
+#         self.auth = auth
 
-    @property
-    def get_pipeline_images(self):
-        pipeline_tools = []
-        if self.auth:
-            path = ArtifactoryPath(
-                "https://artifactory.cloud.cms.gov/artifactory/batcave-docker/pipeline-tools/",
-                auth=self.auth
-            )
-            pipeline_tools = [
-                f"artifactory.cloud.cms.gov/batcave-docker{p.path_in_repo}" for p in path]
-        pipeline_tools.sort()
-        df = make_dataframe(pipeline_tools)
-        return df
+#     @property
+#     def get_pipeline_images(self):
+#         pipeline_tools = []
+#         if self.auth:
+#             path = ArtifactoryPath(
+#                 "https://artifactory.cloud.cms.gov/artifactory/batcave-docker/pipeline-tools/",
+#                 auth=self.auth
+#             )
+#             pipeline_tools = [
+#                 f"artifactory.cloud.cms.gov/batcave-docker{p.path_in_repo}" for p in path]
+#         pipeline_tools.sort()
+#         df = make_dataframe(pipeline_tools)
+#         return df

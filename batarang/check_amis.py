@@ -5,12 +5,12 @@ from datetime import datetime
 def get_latest_ami(ec2, version):
 
     images = ec2.describe_images(
-        Owners=["743302140042"],
+        Owners=["602401143452"],
         Filters=[
             {
                 'Name': 'name',
                 'Values': [
-                    f"amzn2-eks-{version}*",
+                    f"amazon-eks-node-{version}-*",
                 ]
             },
         ]

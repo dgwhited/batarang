@@ -21,7 +21,7 @@ Options:
     --profile profile               AWS Profile [None]
     --region region                 AWS Region [None]
     --csvoutputfile csvoutputfile   Name of file to dump output to
-    --eksversion eksversion         EKS version to use when searching AMIs [Default: 1.24]
+    --eksversion eksversion         EKS version to use when searching AMIs [Default: 1.29]
     --severity severity             Security Hub Severity [Default: CRITICAL,HIGH,MEDIUM,LOW]
     --order-by order                Sort the tabular output [Default: ImageCreationDate]
     --productname productname       Name of product name to search for [None]
@@ -33,7 +33,7 @@ from .check_amis import get_latest_ami, nodes
 from .sechub import gather_security_hub
 from .guardduty import get_guardduty_findings
 from .dump_csv import dumpCSV
-from .k8s import KUBERNETES_CLUSTER, ARTIFACTORY_REPO
+from .k8s import KUBERNETES_CLUSTER
 from .database import check_databases
 from .ebs import check_ebs
 from .production_readiness import production_readiness_checks
@@ -72,12 +72,12 @@ def run(**arguments):
             cluster = KUBERNETES_CLUSTER()
             # only one kubernetes command right now more if statements when we add more features
             response = cluster.get_running_images
-        elif arguments.get("artifactory"):
-            un = getpass(prompt="EID:")
-            pw = getpass(prompt="Password:", stream=None)
-            auth = (un, pw)
-            af = ARTIFACTORY_REPO(auth=auth)
-            response = af.get_pipeline_images
+        # elif arguments.get("artifactory"):
+        #     un = getpass(prompt="EID:")
+        #     pw = getpass(prompt="Password:", stream=None)
+        #     auth = (un, pw)
+        #     af = ARTIFACTORY_REPO(auth=auth)
+        #     response = af.get_pipeline_images
         elif arguments.get("databases"):
             response = check_databases(session=session)
         elif arguments.get("ebs"):
