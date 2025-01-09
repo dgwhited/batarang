@@ -18,7 +18,7 @@ Install from src
 ```
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -U git+https://code.batcave.internal.cms.gov/batcave-watchtower/batarang.git
+pip install -U git+https://github.com/dgwhited/batarang.git
 batarang (nodes | latest | sechub) --profile yourawsprofile
 ```
 
